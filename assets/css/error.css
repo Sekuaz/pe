@@ -1,0 +1,65 @@
+.cuerpo-errorV{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    background-color: #ffffffcc;
+}
+
+.content-error{
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.content-error .icon{
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #F89D2C;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuerpo-errorV i{
+    font-size: 25px;
+    padding-bottom: 3px;
+}
+
+.cuerpo-errorV span{
+    color: #333333;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.cuerpo-errorV p{
+    font-family: sans-serif;
+    padding-top: 5px;
+    font-size: 16px;
+    color: #5c5c5c;
+}
+
+.cuerpo-errorV button{
+    padding: 14px 32px 16px 32px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    background-color: #F89D2C;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.cuerpo-errorV .btn{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,42 @@
+section{
+    background-color: #F7F7F7;
+}
+
+.box-img img{
+    width: 34px;
+}
+
+.box-form .box-img img{
+    position: absolute;
+    margin-top: 9px;
+}
+
+.box-form{
+    height: auto;
+    padding-bottom: 30px;
+    background-color: #fff;
+}
+
+.box-img input{
+    width: 90%;
+    height: 50px;
+    border: none;
+    font-size: 17px;
+    border-bottom: 1px solid #0000007c;
+    margin-bottom: 30px;
+    padding-left: 50px;
+    outline: none;
+}
+
+.img-fondo3{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.img-fondo3 img{
+    width: 300px;
+    max-width: 100%;
+}
