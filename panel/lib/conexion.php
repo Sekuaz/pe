@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$database = "fpirxrry_sekuaz";
-$username = "fpirxrry_sekuaz";
-$password = "Luisk0212";
+$servername = "sql3.freesqldatabase.com";
+$database = "sql3672378";
+$username = "sql3672378";
+$password = "xeD4e8TJ9e";
 
 $path = "http://192.168.1.77:8080/panelroja/";
 
